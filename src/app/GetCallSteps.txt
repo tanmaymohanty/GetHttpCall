@@ -1,0 +1,31 @@
+Step-1
+-------
+app.module.ts
+--------------
+
+import { HttpClientModule } from '@angular/common/http';
+  imports: [
+    HttpClientModule
+  ],
+
+-------
+Step-2
+-------
+app.componet.ts
+----------------
+import { HttpClient } from '@angular/common/http';
+
+ constructor(private http: HttpClient) {
+    http.get('http://jsonplaceholder.typicode.com/users').subscribe(response => {
+      this.posts = response;
+     });
+  }
+
+step-3
+------
+<ul>
+  <li *ngFor = "let post of posts">
+    {{post.name}}
+
+  </li>
+</ul>
